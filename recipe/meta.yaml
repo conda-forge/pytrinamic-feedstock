@@ -23,6 +23,7 @@ requirements:
     - python-can >=3
     - canopen
     - pyserial >=3
+    - msgpack-python
 
 test:
   imports:

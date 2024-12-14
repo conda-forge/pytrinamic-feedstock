@@ -1,13 +1,13 @@
 {% set name = "pytrinamic" %}
-{% set version = "0.2.11" %}
+{% set version = "0.2.12" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pytrinamic-{{ version }}.tar.gz
-  sha256: b4639d99d0e3747c3f0daaa65c29a6ec6233bc61c122afeecebeba50b11c6f6c
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pytrinamic-{{ version }}.tar.gz
+  sha256: 34285a5f9e86e466aebb1af8163271cd4b5ac889f69d4201baab06eb9813c21b
 
 build:
   noarch: python
@@ -16,15 +16,16 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
     - intelhex >=2.3
-    - python >=3.6
+    - python >={{ python_min }}
     - python-can >=3
     - canopen
     - pyserial >=3
-    - msgpack-python
+    - msgpack-python <=1.0
 
 test:
   imports:
@@ -33,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/trinamic/PyTrinamic

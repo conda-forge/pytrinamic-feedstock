@@ -25,15 +25,16 @@ requirements:
     - python-can >=3
     - canopen
     - pyserial >=3
-    - msgpack-python <=1.0
+    - intelhex >=2.3
 
 test:
   imports:
     - pytrinamic
   commands:
-    # - pip check
+    - tmclfwupload --help
+    - pip check
   requires:
-    # - pip
+    - pip
     - python {{ python_min }}
 
 about:

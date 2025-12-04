@@ -1,5 +1,5 @@
 {% set name = "pytrinamic" %}
-{% set version = "0.2.19" %}
+{% set version = "0.2.20" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pytrinamic-{{ version }}.tar.gz
-  sha256: c42d0648eebacfcb659a3e2f77384b7ee8f74506d387509faef39287fd7add3d
+  sha256: 542f72accf001f74e193fdca6c11d25072dff28635d7f16913c3ca6c58d55609
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - intelhex >=2.3
     - python >={{ python_min }}
     - python-can >=3
+    - wrapt <2
     - canopen
     - pyserial >=3
     - intelhex >=2.3

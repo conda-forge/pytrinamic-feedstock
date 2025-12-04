@@ -23,6 +23,7 @@ requirements:
     - intelhex >=2.3
     - python >={{ python_min }}
     - python-can >=3
+    - wrapt <2
     - canopen
     - pyserial >=3
     - intelhex >=2.3

@@ -1,5 +1,5 @@
 {% set name = "pytrinamic" %}
-{% set version = "0.2.23" %}
+{% set version = "0.2.24" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pytrinamic-{{ version }}.tar.gz
-  sha256: 560cb467a1df0f599eaa8a75f4efe386891ae28c62918e47e1980d7e0baa677e
+  sha256: fddb683b4477e21c55f3366bf28e4c55eaf3c537a045c1d9d5ded2d48f3651c5
 
 build:
   noarch: python

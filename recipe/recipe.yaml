@@ -1,0 +1,57 @@
+schema_version: 1
+
+context:
+  name: pytrinamic
+  version: 0.2.25
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pytrinamic-${{ version }}.tar.gz
+  sha256: ab9e635673f6513daab4cb0135cd4b702f692a1979533a8d213cef6e1c45e40d
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - intelhex >=2.3
+    - python >=${{ python_min }}
+    - python-can >=3
+    - wrapt <2
+    - canopen
+    - pyserial >=3
+    - intelhex >=2.3
+
+tests:
+  - python:
+      imports:
+        - pytrinamic
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - tmclfwupload --help
+
+about:
+  summary: TRINAMICs Python Technology Access Package.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/trinamic/PyTrinamic
+
+extra:
+  recipe-maintainers:
+    - jan-janssen

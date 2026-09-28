@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pytrinamic
-  version: 0.2.25
+  version: 0.2.26
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/pytrinamic-${{ version }}.tar.gz
-  sha256: ab9e635673f6513daab4cb0135cd4b702f692a1979533a8d213cef6e1c45e40d
+  sha256: e7866971eb9e8dacd444378d3bb4f722ab1eb2001dfd3c47b26f1407fa79f8bb
 
 build:
   number: 0
@@ -26,11 +26,9 @@ requirements:
     - intelhex >=2.3
     - python >=${{ python_min }}
     - python-can >=3
-    - wrapt <2
     - canopen
     - pyserial >=3
     - intelhex >=2.3
-
 tests:
   - python:
       imports:
@@ -38,7 +36,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}
-        - "*"
+        - '*'
   - requirements:
       run:
         - pip
